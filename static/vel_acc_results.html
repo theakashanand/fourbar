@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Velocity Acceleration Results{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+{% endblock %}
+
+{% block page_content %}
+
+    <h3><u><b>Given:</b></u><br></h3>
+    a = {{a}}<br>
+    b = {{b}}<br>
+    c = {{c}}<br>
+    d = {{d}}<br>
+    <div lang="latex">\theta_2 = {{theta2}} deg </div>
+    <div lang="latex">\theta_3 = {{theta3}} deg </div>
+    <div lang="latex">\theta_4 = {{theta4}} deg </div>
+    <div lang="latex">\omega_2 = {{omega2}} rad/s </div>
+    <div lang="latex">\alpha_2 = {{alpha2}} rad/s^2 </div>
+    <br>
+
+    <h3><u><b>Velocity Analysis</b></u></h3>
+    <div lang="latex">\omega_3 = \frac{a\omega_2sin(\theta_4-\theta_2)}{bsin(\theta_3 - \theta_4)} = {{omega3}}</div><br>
+    <div lang="latex">\omega_4 = \frac{a\omega_2sin(\theta_2-\theta_3)}{csin(\theta_4 - \theta_3)} = {{omega4}}</div><br><br>
+
+    <h3><u><b>Acceleration Analysis</b></u></h3>
+
+    <div lang="latex">A = c\sin\theta_4 = {{A}}</div><br>
+    <div lang="latex">B = b\sin\theta_3 = {{B}}</div><br>
+    <div lang="latex">C = a\alpha_2\sin\theta_2 + a\omega_2^2\cos\theta_2 + b\omega_3^2\cos\theta_3 - c\omega_4^2\cos\theta_4 = {{C}}</div><br>
+    <div lang="latex">D = c\cos\theta_4 = {{D}}</div><br>
+    <div lang="latex">E = b\cos\theta_3 = {{E}}</div><br>
+    <div lang="latex">F = a\alpha_2\cos\theta_2 - a\omega_2^2\sin\theta_2 - b\omega_3^2\sin\theta_3 + c\omega_4^2\sin\theta_4= {{F}}</div><br>
+
+    <div lang="latex">\alpha_3 = \frac{ CD-AF }{ AE - BD } = {{alpha3}}</div><br>
+    <div lang="latex">\alpha_4 = \frac{ CE-BF }{ AE - BD } = {{alpha4}}</div><br>
+
+
+
+   
+
+{% endblock %}

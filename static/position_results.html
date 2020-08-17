@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Position Results{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+{% endblock %}
+
+{% block page_content %}
+
+    <h3><u><b>Given:</b></u><br></h3>
+    a = {{a}}<br>
+    b = {{b}}<br>
+    c = {{c}}<br>
+    d = {{d}}<br>
+    <div lang="latex">\theta_2 = {{theta2}} deg </div>
+    <br>
+
+    <h3><u><b>Position Analysis</b></u></h3>
+    <div lang="latex">K_1 = \frac{d}{a} = {{k1}}</div><br>
+    <div lang="latex">K_2 = \frac{d}{c} = {{k2}}</div><br>
+    <div lang="latex">K_3 = \frac{a^2 - b^2 + c^2 + d^2}{2ac} = {{k3}}</div><br><br>
+
+    <div lang="latex">A = cos(\theta_2) - K_1 - K_2cos(\theta_2) + K_3  = {{A}}</div><br>
+    <div lang="latex">B = -2sin(\theta_2) ={{B}}</div><br>
+    <div lang="latex">C = K_1 - (K_2+1)cos(\theta_2) + K_3={{C}}</div><br><br>
+
+    <div lang="latex">\theta_4 = 2\arctan(\frac{-B \pm \sqrt{B^2 - 4AC}}{2A}) =  </div>
+    <b>{{theta4_p}}</b> or <b>{{theta4_m}}</b>
+    <br><br>
+
+    <div lang="latex">K_4 = \frac{d}{b} = {{k4}}</div><br>
+    <div lang="latex">K_5 = \frac{c^2 - d^2 - a^2 - b^2}{2ab} = {{k5}}</div><br><br>
+
+    <div lang="latex">D = cos(\theta_2) - K_1 + K_4*cos(\theta_2) + K_5 = {{D}}</div><br>
+    <div lang="latex">E = -2*sin(\theta_2) = {{E}}</div><br>
+    <div lang="latex">F = K_1 + (K_4-1)*cos(\theta_2) + K_5 = {{F}}</div>
+    <br><br>
+
+    <div lang="latex">\theta_3 = 2\arctan(\frac{-E \pm \sqrt{E^2 - 4DF}}{2D}) =  </div>
+    <b>{{theta3_p}}</b> or <b>{{theta3_m}}</b>
+    <br><br>
+
+
+{% endblock %}
